@@ -1,11 +1,11 @@
-import Category from "../category/Category"
 import Navbar from "../navbar/Navbar"
+import Note from "../note/Note"
 
 const App = () => {
   return (
         <>
         <Navbar/>
-        <Category/>
+        <Note/>
         </>
     )
 }
