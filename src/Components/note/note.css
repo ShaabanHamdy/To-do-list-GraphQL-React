@@ -1,0 +1,48 @@
+.btn{
+  background-color:#E735AD !important ;
+  color: white !important;
+}
+.btnClose{
+  background-color: rgb(0, 115, 255) !important;
+  color: white !important;
+  
+}
+.fas{
+cursor: pointer;
+}
+
+.cart{
+   background-color:#f5e8f1 !important;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 5px 20px 0px ;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.NoteEmpty{
+  background-color: #E735AD;
+  width: 50%;
+  color: #f5e8f1;
+  margin: auto;
+  border: 1px solid;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+@media screen  and (max-width:990px) and (min-width:770px){
+  .cartCol{
+    width: 40% !important;
+  }
+}
+@media screen  and (max-width:500px) {
+  .cartCol{
+    margin: auto;
+    width: 80% !important;
+  }
+}

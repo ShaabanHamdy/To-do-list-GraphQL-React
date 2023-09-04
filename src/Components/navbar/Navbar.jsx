@@ -1,4 +1,5 @@
 import GraphqlImg from "../images/GraphQL-Logo-Vector.jpg";
+import "./navbar.css";
 
 const Navbar = () => {
   return (

@@ -1,8 +1,9 @@
+import Spinner from "react-bootstrap/Spinner";
 import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { CREATE_NOTES, DELETE_NOTES, GET_NOTES } from "../GraphQl/GraphQL";
-
+import "./note.css";
 const Note = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -32,7 +33,7 @@ const Note = () => {
     delete_note({ variables: { id }, refetchQueries: [{ query: GET_NOTES }] });
   };
   // ============================================
-
+console.log(data);
   // =============================
   return (
     <>
@@ -89,27 +90,36 @@ const Note = () => {
             </Modal>
           </div>
 
-          {!loading ? (
+          {loading ? (
             //   =============================
-            data.getNotes?.map((elm, index) => (
-              <div key={index} className="col-md-3">
-                <div className=" p-2 border border-1">
-                  <div className=" text-center my-3">
-                    {elm.title}
+
+            // ========================================
+            <div className="text-center p-5">
+              <Spinner variant="primary" animation="border" role="status">
+                {" "}
+              </Spinner>
+            </div>
+          ) : (
+            data?.getNotes?.length > 0 ? data?.getNotes?.map((elm, index) => (
+              <div key={index} className="col-md-3 cartCol">
+                <div className="cart">
+                  <div className=" mb-4 text-center">
+                    <span className="h2 ">{elm.title}</span>
                     <i
                       onClick={() => deleteNote(elm)}
-                      className="fas fa-trash-can text-danger float-end"
+                      className="fas fa-trash-can  text-danger float-end"
                     ></i>
-                  </div>
-                  <div className="clearfix"></div>
 
-                  <div className="">{elm.description}</div>
+                    <div className="clearfix"></div>
+                  </div>
+                  <div className="fs-4">{elm.description}</div>
                 </div>
               </div>
-            ))
-          ) : (
-            // ========================================
-            <p>Loading............</p>
+
+            )) :
+            <div className="NoteEmpty"> 
+              <h2 className=" text-center ">Note Empty</h2>
+          </div>
           )}
         </div>
       </div>
